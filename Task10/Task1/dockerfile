@@ -1,5 +1,5 @@
 FROM ubuntu
-RUN atp install -y nginx 
+RUN apt install -y nginx 
 COPY index.html /usr/share/nginx/html/
 ENTRYPOINT /usr/sbin/nginx
 CMD ["-g", "daemon off;"]
