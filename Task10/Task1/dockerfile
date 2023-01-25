@@ -1,6 +1,4 @@
 FROM ubuntu
 RUN atp install -y nginx 
-
-ENTRYPOINT /usr/sbin/nginx
-CMD ["-g", "daemon off;"]
+COPY index.html /usr/share/nginx/html/
 EXPOSE 8080
