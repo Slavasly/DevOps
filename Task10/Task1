@@ -1,6 +1,0 @@
-FROM ubuntu
-RUN atp install -y nginx 
-
-ENTRYPOINT /usr/sbin/nginx
-CMD ["-g", "daemon off;"]
-EXPOSE 8080
