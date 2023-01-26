@@ -26,7 +26,7 @@ COPY index.html /usr/share/nginx/html
 
 4. Run the docker container at port 8080  
 
-ubuntu@ip-172-31-50-104:~/GL/Task10/Task1$ docker build -t mywebsite:v1 . 
+docker build -t mywebsite:v1 . 
 Sending build context to Docker daemon  4.096kB 
 Step 1/2 : FROM nginx:latest 
 ---> a99a39d070bf 
@@ -34,6 +34,9 @@ Step 2/2 : COPY index.html /usr/share/nginx/html
 ---> 81bad88ca414 
 Successfully built 81bad88ca414 
 Successfully tagged mywebsite:v1 
+
+docker run -d -p 8080:80 mywebsite:v1
+6e170444b3a636249535a48f2499bbf3a0d28495a6a3ce0a715a52ab4801d81f
 
 5. Open page in Web Browser 
 http://ec2-100-25-29-14.compute-1.amazonaws.com:8080/  
