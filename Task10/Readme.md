@@ -40,9 +40,10 @@ docker run -d -p 8080:80 mywebsite:v1
 
 5. Open page in Web Browser 
 http://ec2-100-25-29-14.compute-1.amazonaws.com:8080/  
+![image](https://user-images.githubusercontent.com/44306982/214729686-f728b973-4b34-41d0-9dc1-a68a4d00ae41.png)
 
 6. Report save in GitHub repository  
-![image](https://user-images.githubusercontent.com/44306982/214729686-f728b973-4b34-41d0-9dc1-a68a4d00ae41.png)
+https://github.com/Slavasly/GL/tree/main/Task10
 
 
 Task 2 
