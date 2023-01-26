@@ -50,12 +50,104 @@ Task 2
 
 1. Prepare private and public network  
 
-2. Prepare one dockerfile based on ubuntu with the ping command  
+ubuntu@ip-172-31-50-104:~$ docker network create wan 
 
-3. One container must have access to the private and public networks the second container must be in the private network  
+8f9aa4cf7f9ba196169033b1842d5051dae2375b752abc8039f5c452f1a8957c 
+
+ubuntu@ip-172-31-50-104:~$ docker network create lan --internal 
+
+a7eb7e299b03f6e113421868a49e16a84b8d8a3a4ebb3ae6ec0ed24683ef4ec0 
+
+2. Prepare one Dockerfile based on ubuntu with the ping command  
+
+FROM ubuntu:latest 
+
+         RUN apt update && apt install -y iputils-ping && \ 
+
+         apt clean && rm -rf /var/lib/apt/lists/* 
+
+         CMD bash 
+
+2.1 Build  image 
+
+ubuntu@ip-172-31-50-104:~/GL/Task10/Task2$ docker build -t ping_host . 
+
+Sending build context to Docker daemon  2.048kB 
+
+Step 1/3 : FROM ubuntu:22.04 
+
+---> 6b7dfa7e8fdb 
+
+Step 2/3 : RUN apt update && apt install -y iputils-ping &&          apt clean && rm -rf /var/lib/apt/lists/* 
+
+---> Running in 2249c9e3943a 
+
+Removing intermediate container 2249c9e3943a 
+
+---> 59d29d685d48 
+
+Step 3/3 : CMD bash 
+
+---> Running in acbe3a41e8bd 
+
+Removing intermediate container acbe3a41e8bd 
+
+---> cfda8ced9cb7 
+
+Successfully built cfda8ced9cb7 
+
+Successfully tagged ping_host:latest 
+
+![image](https://user-images.githubusercontent.com/44306982/214942405-d65e7b69-3378-473a-8123-0d9bb1289fed.png)
+
+3. One container must have access to the private and public networks the second container must be in the private network Host1->WAN Host2->Lan 
+
+docker run -d --name host_wan --network wan ping_host 
+![image](https://user-images.githubusercontent.com/44306982/214942744-cd9cba9f-d290-478a-8189-628157c8809f.png)
+
+ 
+
+ubuntu@ip-172-31-50-104:~/GL/Task10/Task2$ docker network connect lan host_wan 
+
+![image](https://user-images.githubusercontent.com/44306982/214942822-ba91aaf3-c6fd-4759-9c94-05764ecbd2dc.png)
+
+ 
+
+docker run -d --name host_lan--network lan ping_host 
+
+![image](https://user-images.githubusercontent.com/44306982/214943026-9b587a48-4665-4dc6-bfd2-5fdff48ddf44.png)
+
+ 
+
+Inspect ip addresses 
+
+![image](https://user-images.githubusercontent.com/44306982/214943117-b0db1719-a45b-4cbd-860d-9b1beedfe1a5.png)
+
+ 
+
+ 
 
 4. A ) Run a container that has access to the public network and ping some resources ( example: google.com )  
 
+Ping host_wan to host_lan 
+
+ubuntu@ip-172-31-50-104:~/GL/Task10/Task2$ docker exec -it host_wan sh 
+
+ ![image](https://user-images.githubusercontent.com/44306982/214943391-11dcd213-e6d4-437f-b83b-27e39714f476.png)
+
+
+Ping host_wan to i.ua 
+
+![image](https://user-images.githubusercontent.com/44306982/214943444-9dcb5ad7-5185-4595-8285-8cf12408d14b.png)
+
+ 
+
 B ) The second container ping the first container via a private network  
+
+ubuntu@ip-172-31-50-104:~/GL/Task10/Task2$ docker exec -it host_lan sh 
+
+![image](https://user-images.githubusercontent.com/44306982/214943277-bed643f5-3917-440a-975f-2543052a8e2f.png)
+
+ 
 
 5. Report save in GitHub repository  
