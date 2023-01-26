@@ -1,6 +1,11 @@
- 1. Install docker  https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04  
+Docker  
 
-Fix Got permission denied while trying to connect to the Docker daemon socket 
+Task 1 
+
+ 1. Install docker 
+ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04  
+
+1.1 Fix Got permission denied while trying to connect to the Docker daemon socket 
 https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket  
 
 2. Prepare a dockerfile based on Apache or Nginx image https://hub.docker.com/_/nginx   
@@ -30,9 +35,21 @@ Step 2/2 : COPY index.html /usr/share/nginx/html
 Successfully built 81bad88ca414 
 Successfully tagged mywebsite:v1 
 
-ubuntu@ip-172-31-50-104:~/GL/Task10/Task1$ docker run -d -p 8080:80 mywebsite:v1
-6e170444b3a636249535a48f2499bbf3a0d28495a6a3ce0a715a52ab4801d81f
-
-5. Open page in Web Browser http://ec2-100-25-29-14.compute-1.amazonaws.com:8080/  
+5. Open page in Web Browser 
+http://ec2-100-25-29-14.compute-1.amazonaws.com:8080/  
 
 6. Report save in GitHub repository  
+
+Task 2 
+
+1. Prepare private and public network  
+
+2. Prepare one dockerfile based on ubuntu with the ping command  
+
+3. One container must have access to the private and public networks the second container must be in the private network  
+
+4. A ) Run a container that has access to the public network and ping some resources ( example: google.com )  
+
+B ) The second container ping the first container via a private network  
+
+5. Report save in GitHub repository  
