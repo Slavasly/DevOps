@@ -12,7 +12,10 @@ https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permissio
 
 **2. Prepare a dockerfile based on Apache or Nginx image**
 ```
-FROM nginx:latest 
+# Pull the latest NGINX image
+FROM nginx:latest
+
+# Copy updated index.html to NGINX html folder
 COPY index.html /usr/share/nginx/html 
 ```
 https://hub.docker.com/_/nginx
@@ -32,19 +35,13 @@ https://hub.docker.com/_/nginx
 
 `docker build -t mywebsite:v1 .`
 
->Sending build context to Docker daemon  4.096kB
->
-> Step 1/2 : FROM nginx:latest 
->
->---> a99a39d070bf 
->
->Step 2/2 : COPY index.html /usr/share/nginx/html 
->
->---> 81bad88ca414 
->
->Successfully built 81bad88ca414 
->
->Successfully tagged mywebsite:v1 
+>Sending build context to Docker daemon  4.096kB\
+> Step 1/2 : FROM nginx:latest\
+>---> a99a39d070bf \
+>Step 2/2 : COPY index.html /usr/share/nginx/html \
+>---> 81bad88ca414 \
+>Successfully built 81bad88ca414 \
+>Successfully tagged mywebsite:v1 \
 
 **5. Run the docker container at port 8080**
 
@@ -52,22 +49,19 @@ https://hub.docker.com/_/nginx
 >OK 6e170444b3a636249535a48f2499bbf3a0d28495a6a3ce0a715a52ab4801d81f
 
 >Note!
->
->Docker ps is used to list the containers image -t flag means tag of your image
->
->--name flag means name of your container
->
->-p flag means port mapping
->
->-d flag means that a Docker container runs in the background of your terminal
+>Docker ps is used to list the containers image \
+>`-t` flag means tag of your image\
+>`--name` flag means name of your container\
+>`-p` flag means port mapping\
+>`-d` flag means that a Docker container runs in the background of your terminal
 
-**5. Open page in Web Browser**
+**6. Open page in Web Browser**
 
 http://ec2-100-25-29-14.compute-1.amazonaws.com:8080/  
 
 ![image](https://user-images.githubusercontent.com/44306982/214729686-f728b973-4b34-41d0-9dc1-a68a4d00ae41.png)
 
-**6. Report save in GitHub repository**
+**7. Report save in GitHub repository**
 
 https://github.com/Slavasly/GL/tree/main/Task10
 
@@ -89,46 +83,32 @@ https://github.com/Slavasly/GL/tree/main/Task10
 **2. Prepare one Dockerfile based on ubuntu with the ping command**
 
 ```
-FROM ubuntu:latest 
-
+FROM nginx:latest 
          RUN apt update && apt install -y iputils-ping && \ 
-
          apt clean && rm -rf /var/lib/apt/lists/* 
-
          CMD bash 
 ```
 
-**2.1 Go to the foled and build Docker image**
+**2.1 Go to the folder and build Docker image**
 
 `cd /GL/Task10/Task2`
 
 `docker build -t ping_host .`
 
->Sending build context to Docker daemon  2.048kB 
->
->Step 1/3 : FROM ubuntu:22.04 
->
->---> 6b7dfa7e8fdb 
->
->Step 2/3 : RUN apt update && apt install -y iputils-ping &&          apt clean && rm -rf /var/lib/apt/lists/* 
->
->---> Running in 2249c9e3943a 
->
->Removing intermediate container 2249c9e3943a 
->
->---> 59d29d685d48 
->
->Step 3/3 : CMD bash 
->
->---> Running in acbe3a41e8bd 
->
->Removing intermediate container acbe3a41e8bd 
->
->---> cfda8ced9cb7 
->
->Successfully built cfda8ced9cb7 
->
->Successfully tagged ping_host:latest 
+>Sending build context to Docker daemon  2.048kB \
+>Step 1/3 : FROM nginx:latest \
+>---> 6b7dfa7e8fdb \
+>Step 2/3 : RUN apt update && apt install -y iputils-ping &&         
+> apt clean && rm -rf /var/lib/apt/lists/* \
+>---> Running in 2249c9e3943a \
+>Removing intermediate container 2249c9e3943a \
+>---> 59d29d685d48 \
+>Step 3/3 : CMD bash \
+>---> Running in acbe3a41e8bd \
+>Removing intermediate container acbe3a41e8bd \
+>---> cfda8ced9cb7 \
+>Successfully built cfda8ced9cb7 \
+>Successfully tagged ping_host:latest
 
 ![image](https://user-images.githubusercontent.com/44306982/214942405-d65e7b69-3378-473a-8123-0d9bb1289fed.png)
 
