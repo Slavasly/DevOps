@@ -51,6 +51,16 @@ https://hub.docker.com/_/nginx
 `docker run -d -p 8080:80 mywebsite:v1`
 >OK 6e170444b3a636249535a48f2499bbf3a0d28495a6a3ce0a715a52ab4801d81f
 
+>Note!
+>
+>Docker ps is used to list the containers image -t flag means tag of your image
+>
+>--name flag means name of your container
+>
+>-p flag means port mapping
+>
+>-d flag means that a Docker container runs in the background of your terminal
+
 **5. Open page in Web Browser**
 
 http://ec2-100-25-29-14.compute-1.amazonaws.com:8080/  
