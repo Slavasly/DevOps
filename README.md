@@ -12,7 +12,7 @@
 - 9.Jenkins/-CI pipelines/Groovy (Task9](task9/Homework9.md))
 - 10.Docker ([Task10](Task10%20Docker/Readme.md))
 - 11.K8S (Introducing) ([Task11](Task11%20K8S/Readme.md))
-- 12.K8S (CRE, Docker)
+- 12.K8S (CRE, Docker) ([Task12](Task12%20K8S/Readme.md))
 - 13.K8S (Helm)
 - 14.K8S (Operators)
 - 15.Final Project
