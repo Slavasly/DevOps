@@ -1,0 +1,89 @@
+Name:               kubenode
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=kubenode
+                    kubernetes.io/os=linux
+Annotations:        csi.volume.kubernetes.io/nodeid: {"csi.tigera.io":"kubenode"}
+                    kubeadm.alpha.kubernetes.io/cri-socket: unix:///var/run/containerd/containerd.sock
+                    node.alpha.kubernetes.io/ttl: 0
+                    projectcalico.org/IPv4Address: 10.132.0.3/32
+                    projectcalico.org/IPv4VXLANTunnelAddr: 192.168.188.192
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 27 Jan 2023 21:53:04 +0000
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  kubenode
+  AcquireTime:     <unset>
+  RenewTime:       Sun, 05 Feb 2023 22:09:00 +0000
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Sun, 05 Feb 2023 21:47:43 +0000   Sun, 05 Feb 2023 21:47:43 +0000   CalicoIsUp                   Calico is running on this node
+  MemoryPressure       False   Sun, 05 Feb 2023 22:07:59 +0000   Sun, 05 Feb 2023 21:47:33 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Sun, 05 Feb 2023 22:07:59 +0000   Sun, 05 Feb 2023 21:47:33 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Sun, 05 Feb 2023 22:07:59 +0000   Sun, 05 Feb 2023 21:47:33 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Sun, 05 Feb 2023 22:07:59 +0000   Sun, 05 Feb 2023 21:47:33 +0000   KubeletReady                 kubelet is posting ready status. AppArmor enabled
+Addresses:
+  InternalIP:  10.132.0.3
+  Hostname:    kubenode
+Capacity:
+  cpu:                4
+  ephemeral-storage:  20134592Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             8136992Ki
+  pods:               110
+Allocatable:
+  cpu:                4
+  ephemeral-storage:  18556039957
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             8034592Ki
+  pods:               110
+System Info:
+  Machine ID:                 e79ae6c30c9371d97bee7e5f467bfd60
+  System UUID:                e79ae6c3-0c93-71d9-7bee-7e5f467bfd60
+  Boot ID:                    a9ad13a4-509a-4197-90bd-99f4ab83b8ac
+  Kernel Version:             5.15.0-1027-gcp
+  OS Image:                   Ubuntu 20.04.5 LTS
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.6.15
+  Kubelet Version:            v1.26.1
+  Kube-Proxy Version:         v1.26.1
+PodCIDR:                      192.168.1.0/24
+PodCIDRs:                     192.168.1.0/24
+Non-terminated Pods:          (5 in total)
+  Namespace                   Name                                CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                ------------  ----------  ---------------  -------------  ---
+  calico-system               calico-node-clc5w                   0 (0%)        0 (0%)      0 (0%)           0 (0%)         9d
+  calico-system               calico-typha-6f9b97f8bc-fhgpx       0 (0%)        0 (0%)      0 (0%)           0 (0%)         9d
+  calico-system               csi-node-driver-zrhqt               0 (0%)        0 (0%)      0 (0%)           0 (0%)         9d
+  kube-system                 kube-proxy-wnl69                    0 (0%)        0 (0%)      0 (0%)           0 (0%)         9d
+  tigera-operator             tigera-operator-54b47459dd-cvw2g    0 (0%)        0 (0%)      0 (0%)           0 (0%)         9d
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests  Limits
+  --------           --------  ------
+  cpu                0 (0%)    0 (0%)
+  memory             0 (0%)    0 (0%)
+  ephemeral-storage  0 (0%)    0 (0%)
+  hugepages-1Gi      0 (0%)    0 (0%)
+  hugepages-2Mi      0 (0%)    0 (0%)
+Events:
+  Type     Reason                   Age                From             Message
+  ----     ------                   ----               ----             -------
+  Normal   Starting                 21m                kube-proxy       
+  Normal   RegisteredNode           44m                node-controller  Node kubenode event: Registered Node kubenode in Controller
+  Normal   NodeNotReady             44m                node-controller  Node kubenode status is now: NodeNotReady
+  Normal   Starting                 21m                kubelet          Starting kubelet.
+  Warning  InvalidDiskCapacity      21m                kubelet          invalid capacity 0 on image filesystem
+  Warning  Rebooted                 21m                kubelet          Node kubenode has been rebooted, boot id: a9ad13a4-509a-4197-90bd-99f4ab83b8ac
+  Normal   NodeHasSufficientMemory  21m (x2 over 21m)  kubelet          Node kubenode status is now: NodeHasSufficientMemory
+  Normal   NodeHasNoDiskPressure    21m (x2 over 21m)  kubelet          Node kubenode status is now: NodeHasNoDiskPressure
+  Normal   NodeHasSufficientPID     21m (x2 over 21m)  kubelet          Node kubenode status is now: NodeHasSufficientPID
+  Normal   NodeReady                21m                kubelet          Node kubenode status is now: NodeReady
+  Normal   NodeAllocatableEnforced  21m                kubelet          Updated Node Allocatable limit across pods
