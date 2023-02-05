@@ -34,7 +34,7 @@
 
 **Put your private IP address and hostname**
 
-![image](https://user-images.githubusercontent.com/44306982/215214205-4d8de2b4-178a-42dc-98e4-693edb203fc4.png)
+![image](https://user-images.githubusercontent.com/44306982/216848168-eed92b3f-f92c-45e4-9698-df6539030183.png)
 
 **Save and exit**
 
