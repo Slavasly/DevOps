@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  namespace: ns-devops
+  name: cronjob
+spec:
+  schedule: "*/3 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cronjob
+            image: curlimages/curl:latest
+            imagePullPolicy: IfNotPresent
+            command: ['sh', '-c', 'date;curl -s -o /dev/null -w "Status %{http_code}\n" service-nodeport-nginx:30080'] 
+          restartPolicy: OnFailure
