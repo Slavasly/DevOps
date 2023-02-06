@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-curl-clusterip
+spec:
+  template:
+    spec:
+      containers:
+      - name: job-curl-clusterip
+        image: curlimages/curl
+        command: ['curl', '10.97.150.254']
+      restartPolicy: OnFailure
+  backoffLimit: 4
