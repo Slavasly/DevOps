@@ -4,7 +4,7 @@ metadata:
   namespace: ns-devops
   name: cronjob
 spec:
-  schedule: "*/3 * * * *"
+  schedule: "*/1 * * * *"
   jobTemplate:
     spec:
       template:
@@ -13,5 +13,5 @@ spec:
           - name: cronjob
             image: curlimages/curl:latest
             imagePullPolicy: IfNotPresent
-            command: ['sh', '-c', 'date;curl -s -o /dev/null -w "Status %{http_code}\n" service-nodeport-nginx:30080'] 
+            command: ['sh', '-c', 'date;curl -s -o /dev/null -w "Status %{http_code}\n" http://10.99.140.247:30081']
           restartPolicy: OnFailure
