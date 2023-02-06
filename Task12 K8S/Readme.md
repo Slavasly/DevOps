@@ -169,7 +169,7 @@ spec:
       restartPolicy: OnFailure
   backoffLimit: 4
   ```
-*Apply jov, get job and logs*
+*Apply job, get job and logs*
   
 `kubectl apply -f ./Job_curl_ClusterIP.yml -n ns-devops`
 
@@ -177,9 +177,27 @@ spec:
 
 `kubectl logs job/job-curl-clusterip -n ns-devops`
 
-![image](https://user-images.githubusercontent.com/44306982/217087770-b1fcbc87-9560-48df-884a-184f17b36237.png)
+![image](https://user-images.githubusercontent.com/44306982/217100259-a4a47bd4-4359-43c6-84c6-6b5403114d8c.png)
 
 - Second, get content via curl from an external port (NodePort)
+
+*Create `Job_curl_NodePort.yml` for NodePort
+
+```
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-curl-nodeport
+spec:
+  template:
+    spec:
+      containers:
+      - name: job-curl-nodeport
+        image: curlimages/curl
+        command: ['curl', '10.107.220.215:30030']
+      restartPolicy: OnFailure
+  backoffLimit: 4
+  ```
 
 `kubectl apply -f ./Job_curl_NodePort.yml -n ns-devops`
 
@@ -187,6 +205,20 @@ spec:
 
 `kubectl logs job/job-curl-nodeport -n ns-devops`
 
-## 5.Prepare Cronjob.yaml file which will test the connection to Nginx or Apache service every 3 minutes.**
+![image](https://user-images.githubusercontent.com/44306982/217099803-e5922420-b861-4b44-8e7d-ddf18e8c596f.png)
+
+## 5.Prepare Cronjob.yaml file which will test the connection to Nginx or Apache service every 1 minutes.**
+
+*Create a `job_cronjob.yml`*
+
+![image](https://user-images.githubusercontent.com/44306982/217108340-65b45848-dcf7-4277-8ef1-397b670ddbd0.png)
+
+*Apply Cronjob, get, get job, logs job*
+
+![image](https://user-images.githubusercontent.com/44306982/217109201-94f2e670-8a0a-4e72-ba2f-a69a0bc16240.png)
+
+*Describe Cronjob*
+
+![image](https://user-images.githubusercontent.com/44306982/217109751-809b9679-e40e-4028-8f48-8a84ced09df6.png)
 
 Files and output from all tasks save in GitHub repository
