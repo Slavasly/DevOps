@@ -35,16 +35,16 @@ git clone https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
 git checkout release-2.20
 ```
+![image](https://user-images.githubusercontent.com/44306982/217664981-f0e6c275-6fe5-4bf5-99ff-578b66fffd2a.png)
+
 Copy and edit inventory file:
 ```
 cp -rfp inventory/sample inventory/mycluster
 ```
+![image](https://user-images.githubusercontent.com/44306982/217665257-c13092ad-a2f6-4e67-a19b-7df70b750a9d.png)
+
 ```
 nano inventory/mycluster/inventory.ini
-```
-OR
-```
-vim inventory/mycluster/inventory.ini
 ```
 ```
 [all]
