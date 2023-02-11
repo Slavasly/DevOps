@@ -70,31 +70,31 @@ calico_rr
 ![image](https://user-images.githubusercontent.com/44306982/218258664-4d491271-76c0-47ec-a203-18be6a44426b.png)
 
 Turn on MetalLB:
+Open `addons.yml`
 ```
 nano inventory/mycluster/group_vars/k8s_cluster/addons.yml
 ```
-OR
-```
-vim inventory/mycluster/group_vars/k8s_cluster/addons.yml
-```
+Change settings:
 ```
 metallb_enabled: true
 metallb_speaker_enabled: true
 metallb_avoid_buggy_ips: true
 metallb_ip_range:
-  - "VM_private_ip/32"
+  - "Your_VM_private_ip/32"
 ```
+![image](https://user-images.githubusercontent.com/44306982/218265993-c7009ca4-1163-467c-911e-d95680ad6cbe.png)
+
+Open 1k8s-cluster.yml`
 ```
 nano inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
 ```
-OR
-```
-vim inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
-```
+Change settings:
 ```
 kube_proxy_strict_arp: true
 ```
-Run execute container (<b>if you don't have [Docker installed](https://docs.docker.com/engine/install/ubuntu/), you should install it</b>):
+![image](https://user-images.githubusercontent.com/44306982/218266234-ad6b1fb4-27c0-4b5d-9b21-2e4ca31839ed.png)
+
+Run execute container (<b>if you don't have [Docker installed](https://docs.docker.com/engine/install/ubuntu/), you should install it in advance</b>):
 ```
 sudo docker run --rm -it -v ~/kubespray:/mnt/kubespray -v ~/.ssh:/pem quay.io/kubespray/kubespray:v2.20.0 bash
 ```
