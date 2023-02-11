@@ -26,7 +26,7 @@ SSH to new created VM Instance from local machine:
 
 ![image](https://user-images.githubusercontent.com/44306982/217663717-c3138799-d4a4-4f34-abac-f00da63fe485.png)
 
-### <a name="setup-kubespray">Setup Kubespray</a>
+### <a name="setup-kubespray">2.Setup Kubespray</a>
 <b>All commands are executed on the local machine</b>
 
 Clone Kubespray release  repository:
@@ -46,9 +46,10 @@ cp -rfp inventory/sample inventory/mycluster
 ```
 nano inventory/mycluster/inventory.ini
 ```
+![image](https://user-images.githubusercontent.com/44306982/218258723-538ec716-14b6-45cb-b314-414104354eb8.png)
 ```
 [all]
-node1 ansible_host=VM_publick_ip
+node1 ansible_host=35.187.38.64 #VM Public IP
 
 [kube_control_plane]
 node1
@@ -66,6 +67,8 @@ kube_control_plane
 kube_node
 calico_rr
 ```
+![image](https://user-images.githubusercontent.com/44306982/218258664-4d491271-76c0-47ec-a203-18be6a44426b.png)
+
 Turn on MetalLB:
 ```
 nano inventory/mycluster/group_vars/k8s_cluster/addons.yml
