@@ -206,9 +206,9 @@ Cert-manager will read annotations and create a certificate, which you can reque
 ```
 kubectl get certificate
 ```
-![image](https://user-images.githubusercontent.com/44306982/218338193-6642c1b4-655e-495f-ae67-57b023803450.png)
+![image](https://user-images.githubusercontent.com/44306982/218339431-126bb74d-5245-4034-8e70-10f18cdfbd2d.png)
 
-### <a name="result">Unfortunately No Result</a>
+### <a name="result">Result</a>
+![image](https://user-images.githubusercontent.com/44306982/218339576-0d6e09fd-5731-4e46-b0d0-1bcc56971075.png)
+
 [URL: https://vbruksha.dynv6.net/](https://vbruksha.dynv6.net/)
-
-https://34.76.91.203/
