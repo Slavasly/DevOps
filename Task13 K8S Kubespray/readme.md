@@ -139,6 +139,7 @@ Get a list of pods:
 kubectl get pods -n ingress-nginx -w
 ```
 ![image](https://user-images.githubusercontent.com/44306982/218326123-445be936-0779-442b-abe1-9021f4161eb4.png)
+
 Get a list of services:
 ```
 kubectl get svc --all-namespaces
@@ -147,33 +148,39 @@ kubectl get svc --all-namespaces
 
 ### <a name="create-domain-name">Create domain name</a>
 You can use a free service to get a domain name https://dynv6.com/ (if you have your own domain name, you can use it)<br>
-![image](https://user-images.githubusercontent.com/7732624/217261942-1b2a6821-9f37-47b0-9b23-78a5636eebb6.png)
+![image](https://user-images.githubusercontent.com/44306982/218327436-a29b3ccf-48d9-4d71-9551-0a4c0682a109.png)
 
-### <a name="deployment-and-ingress">Deployment and Ingress</a>
+### <a name="deployment-and-ingress">Apply Deployment, Service, Ingress</a>
 With this command you will run deployment.yaml file:
 ```
 kubectl apply -f deployment.yaml
 ```
-With this command, you will get a list of pods:
+Get a list of pods:
 ```
 kubectl get pods
 ```
-![image](https://user-images.githubusercontent.com/7732624/217263171-7770b83e-e2e7-42d4-ac49-5e7a95b9bc5c.png)
+
+![image](https://user-images.githubusercontent.com/44306982/218335405-825a2d3a-2fa7-4150-ab81-34cad81ad714.png)
 
 <b>Note</b>
-- Before using the following commands, you should change the data in the file to your own
+- You should change the data in the file to your parameters
 
-With this command you will run ingress.yaml file:
+![image](https://user-images.githubusercontent.com/44306982/218335459-f5be43c6-ec9a-498d-a017-7a734e16377d.png)
+
+Run ingress.yaml file:
+
+![image](https://user-images.githubusercontent.com/44306982/218335576-149f0f12-0883-4ebb-bea8-b314190bde5e.png)
+
 ```
 kubectl apply -f ingress.yaml
 ```
-With this command, you will get a list of ingress:
+Get a list of your ingress:
 ```
 kubectl get ingress
 ```
-![image](https://user-images.githubusercontent.com/7732624/217262886-b5e66089-34ab-4f66-9649-52c9a2536954.png)
+![image](https://user-images.githubusercontent.com/44306982/218335621-4bb383c1-c625-44e6-8b01-dcc71a48152c.png)
 
-### <a name="certificate">Certificate</a>
+### <a name="certificate">Get a certificate</a>
 Installing cert-manager:
 ```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
@@ -181,51 +188,27 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 <b>Note</b>
 - Before using the following commands, you should change the data in the files to your own
 
-Run letsencrypt-staging:
-```
-kubectl apply -f staging-issuer.yaml
-```
 Run letsencrypt-prod:
 ```
-kubectl apply -f production-issuer.yaml
+kubectl apply -f clusterissuer.yaml
 ```
-Now you should uncomment everything in the [ingress.yaml](https://github.com/BohdanHavran/DevOps-Basecamp-HomeTask/blob/main/task13/ingress.yaml) file and run it again:
-```
-nano ingress.yaml
-```
-OR
-```
-vim ingress.yaml
-```
+Run `ingress.yaml`
 ```
 kubectl apply -f ingress.yaml
 ```
-Check on the status of the issuer after you create it:
+Get status of the issuerafter creation:
 ```
-kubectl describe issuer letsencrypt-staging
+kubectl describe clusterissuer
 ```
-![image](https://user-images.githubusercontent.com/7732624/217269070-8e596090-2d61-42f9-bb1c-688627221ff4.png)
+![image](https://user-images.githubusercontent.com/44306982/218338146-ef05aaf6-74ca-4200-ad15-ac663d7f5883.png)
 
 Cert-manager will read annotations and create a certificate, which you can request and see:
 ```
 kubectl get certificate
 ```
-![image](https://user-images.githubusercontent.com/7732624/217268081-f0cae2d3-e623-4f81-8dab-fd5063c36bd4.png)
+![image](https://user-images.githubusercontent.com/44306982/218338193-6642c1b4-655e-495f-ae67-57b023803450.png)
 
-Now you should replace "letsencrypt-staging" with "letsencrypt-prod" in the [ingress.yaml](https://github.com/BohdanHavran/DevOps-Basecamp-HomeTask/blob/main/task13/ingress.yaml) file and run it again:
-```
-nano ingress.yaml
-```
-OR
-```
-vim ingress.yaml
-```
-```
-kubectl apply -f ingress.yaml
-```
+### <a name="result">Unfortunately No Result</a>
+[URL: https://vbruksha.dynv6.net/](https://vbruksha.dynv6.net/)
 
-### <a name="result">Result</a>
-URL: https://bohdanhavran.dynv6.net/
-![image](https://user-images.githubusercontent.com/7732624/217270268-043949d7-3091-4af4-bfe4-e03872997508.png)<br>
-![image](https://user-images.githubusercontent.com/7732624/217270293-78e8ab36-df2d-40aa-8bb9-8f8e797a5f69.png)<br>
-![image](https://user-images.githubusercontent.com/7732624/217270323-60123375-b59f-4b9a-9d2c-863b23820c3e.png)
+https://34.76.91.203/
