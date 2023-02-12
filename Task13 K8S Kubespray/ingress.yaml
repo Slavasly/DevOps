@@ -9,8 +9,8 @@ metadata:
 spec:
   tls:
   - hosts:
-   - vbruksha.dynv6.net
-   secretName: quickstart-nginx-tls
+    - vbruksha.dynv6.net
+    secretName: quickstart-nginx-tls
   rules:
   - host: vbruksha.dynv6.net
     http:
