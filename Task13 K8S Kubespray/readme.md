@@ -67,7 +67,7 @@ kube_control_plane
 kube_node
 calico_rr
 ```
-![image](https://user-images.githubusercontent.com/44306982/218258664-4d491271-76c0-47ec-a203-18be6a44426b.png)
+![image](https://user-images.githubusercontent.com/44306982/218314045-5650aaac-263f-4305-a7cf-4c93312c33b0.png)
 
 Turn on MetalLB:
 Open `addons.yml`
@@ -82,9 +82,9 @@ metallb_avoid_buggy_ips: true
 metallb_ip_range:
   - "Your_VM_private_ip/32"
 ```
-![image](https://user-images.githubusercontent.com/44306982/218265993-c7009ca4-1163-467c-911e-d95680ad6cbe.png)
+![image](https://user-images.githubusercontent.com/44306982/218308951-e156c71b-962c-4296-ba82-ee4709f61a23.png)
 
-Open 1k8s-cluster.yml`
+Open `k8s-cluster.yml`
 ```
 nano inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
 ```
@@ -103,13 +103,13 @@ Go to kubespray folder and start ansible-playbook (command in container):
 cd /mnt/kubespray
 ```
 ```
-ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=remote_user -b cluster.yml
+ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=gcp -b cluster.yml
 ```
-![image](https://user-images.githubusercontent.com/7732624/217251644-161e8609-b5e9-4c31-9fa6-16a8241176e4.png)
+![image](https://user-images.githubusercontent.com/44306982/218325524-c120962e-331d-4f37-8b1c-c1321331807c.png)
 
-After successful installation connect to VM and copy kubectl configuration file:
+After successful installation connect to K8S VM and copy kubectl configuration file:
 ```
-ssh -i /pem/id_rsa remote_user@YOUR_VM_IP
+ssh -i /pem/id_rsa gcpr@YOUR_K8S_VM_IP
 ```
 ```
 mkdir ~/.kube
@@ -117,41 +117,33 @@ sudo cp /etc/kubernetes/admin.conf ~/.kube/config
 sudo chmod 777 ~/.kube/config
 kubectl get nodes
 ```
-As result, you will see installed node:<br>
-```
-kubectl get nodes
-```
-![image](https://user-images.githubusercontent.com/7732624/217257411-625e1c0c-6273-451c-9656-83592180fa93.png)
+Finally, you will see installed kubernetes:<br>
 
-### <a name="git-clone">Git clone</a>
-
-In order to start working with the project, you need:
-```
-git clone https://github.com/BohdanHavran/DevOps-Basecamp-HomeTask.git
-```
-```
-cd DevOps-Basecamp-HomeTask/task13
-```
+![image](https://user-images.githubusercontent.com/44306982/218325581-dde5262c-0e3b-4ba7-89e3-4a25ae94265b.png)
 
 ### <a name="Ingress-controller">Ingress-controller</a> 
+Copy file https://github.com/Slavasly/DevOps/blob/main/Task13%20K8S%20Kubespray/nginx-ctl.yaml 
+https://github.com/Slavasly/DevOps/blob/main/Task13%20K8S%20Kubespray/path_provisioner.yaml to VM:
+
+Open folder and Run commands:
 ```
 kubectl apply -f nginx-ctl.yaml
 ```
 ```
 kubectl apply -f path_provisioner.yaml
 ```
+![image](https://user-images.githubusercontent.com/44306982/218326066-5db23e86-2551-42c6-8418-de8ddd8470d2.png)
 
-With this command, you will get a list of pods:
+Get a list of pods:
 ```
 kubectl get pods -n ingress-nginx -w
 ```
-![image](https://user-images.githubusercontent.com/7732624/217257802-269abf4a-f5d8-4245-b2a3-049924fe32fe.png)
-
-With this command, you will get a list of services:
+![image](https://user-images.githubusercontent.com/44306982/218326123-445be936-0779-442b-abe1-9021f4161eb4.png)
+Get a list of services:
 ```
 kubectl get svc --all-namespaces
 ```
-![image](https://user-images.githubusercontent.com/7732624/217273874-f3cb4021-9db1-497a-bf65-6670e20a65ee.png)
+![image](https://user-images.githubusercontent.com/44306982/218326176-fb9fa8c6-a528-41fd-a556-45b13de53c75.png)
 
 ### <a name="create-domain-name">Create domain name</a>
 You can use a free service to get a domain name https://dynv6.com/ (if you have your own domain name, you can use it)<br>
