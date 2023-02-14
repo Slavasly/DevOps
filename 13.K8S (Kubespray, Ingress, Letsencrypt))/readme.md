@@ -95,9 +95,14 @@ kube_proxy_strict_arp: true
 ![image](https://user-images.githubusercontent.com/44306982/218266234-ad6b1fb4-27c0-4b5d-9b21-2e4ca31839ed.png)
 
 Run execute container (<b>if you don't have [Docker installed](https://docs.docker.com/engine/install/ubuntu/), you should install it in advance</b>):
+
+- Also create a ssh keypair to be able to connect from container to the VM K8S (copy created public key to K8S metadata).
+
 ```
 sudo docker run --rm -it -v ~/kubespray:/mnt/kubespray -v ~/.ssh:/pem quay.io/kubespray/kubespray:v2.20.0 bash
 ```
+![2023-02-14_22h16_26](https://user-images.githubusercontent.com/44306982/218852314-835301eb-e452-4533-bb72-106cb4d30d2f.gif)
+
 Go to kubespray folder and start ansible-playbook (command in container):
 ```
 cd /mnt/kubespray
@@ -105,11 +110,13 @@ cd /mnt/kubespray
 ```
 ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=gcp -b cluster.yml
 ```
+![2023-02-14_22h35_56](https://user-images.githubusercontent.com/44306982/218856974-bc65207c-e480-49ad-88e7-7604bdb34a67.gif)
+
 ![image](https://user-images.githubusercontent.com/44306982/218325524-c120962e-331d-4f37-8b1c-c1321331807c.png)
 
 After successful installation connect to K8S VM and copy kubectl configuration file:
 ```
-ssh -i /pem/id_rsa gcpr@YOUR_K8S_VM_IP
+ssh -i /pem/id_rsa gcp@YOUR_K8S_VM_IP
 ```
 ```
 mkdir ~/.kube
