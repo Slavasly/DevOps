@@ -11,8 +11,8 @@
 ## CI/CD & Building Infrastructure
 - [9.Jenkins (CI pipelines/Groovy)](9.Jenkins/Readme.md)
 - [10.Docker (image, dockerfile)](10.Docker%20(image%2C%20dockerfile)/Readme.md)
-- [11.Kubernetes (Install, Deploy)](11.K8S%20(Install%2C%20Deploy)/Readme.md))
-- [12.K8S (ClusterIP, NodePort, Cronjob etc.)](12.K8S%20(ClusterIP%2C%20NodePort%2C%20Cronjob%20etc.)/Readme.md))
-- [13.K8S (Kubespray%2C%20Ingress%2C%20Letsencrypt)](13.K8S%20(Kubespray%2C%20Ingress%2C%20Letsencrypt))/Readme.md)
+- [11.Kubernetes (Install, Deploy)](11.K8S%20(Install%2C%20Deploy)/Readme.md)
+- [12.K8S (ClusterIP, NodePort, Cronjob etc.)](12.K8S%20(ClusterIP%2C%20NodePort%2C%20Cronjob%20etc.)/Readme.md)
+- [13.K8S (Kubespray%2C%20Ingress%2C%20Letsencrypt)](13.K8S%20(Kubespray%2C%20Ingress%2C%20Letsencrypt)/Readme.md)
 - [14.K8S (Helm)](14.K8S%20(Helm)/Readme.md)
 - [15.Final Project](15.Final%20Project/Readme.md)
