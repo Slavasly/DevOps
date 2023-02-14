@@ -1,5 +1,5 @@
 replicaCount: 3
-
+host: vbruksha.dynv6.net
 image:
   repository: nginx
   tag: stable
