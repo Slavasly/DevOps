@@ -155,7 +155,10 @@ kubectl get svc --all-namespaces
 
 ### <a name="create-domain-name">Create domain name</a>
 You can use a free service to get a domain name https://dynv6.com/ (if you have your own domain name, you can use it)<br>
-![image](https://user-images.githubusercontent.com/44306982/218327436-a29b3ccf-48d9-4d71-9551-0a4c0682a109.png)
+![image](https://user-images.githubusercontent.com/44306982/233716921-63fe23b0-f4f9-46db-8236-7f4506d701ac.png)
+
+Set external ip from the node1 as IP v4 address
+![image](https://user-images.githubusercontent.com/44306982/233715786-beb7c9de-04bb-48c2-ac2c-967a52202496.png)
 
 ### <a name="deployment-and-ingress">Apply Deployment, Service, Ingress</a>
 With this command you will run deployment.yaml file:
