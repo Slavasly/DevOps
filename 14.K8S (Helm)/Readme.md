@@ -1,47 +1,33 @@
 # Kubernetes Helm Home Task
 Content:<br>
- [Deploy Nginx](#Deploy-nginx) | [Deploy Pacman](#Deploy-pacman) | [Deploy MERN stack](#Deploy-mern-stack)
+ [Deploy Nginx](#1Deploy-nginx) | [Deploy Pacman](#2Deploy-pacman) | [Deploy MERN stack](#3Deploy-mern-stack)
 
  <b>Note:</b>
-- You must edit the values.yaml file before starting (depends on the project you are running)
-- You can also use --set when starting the project and replace the required data with your own to avoid editing the file
+- You must edit the **values.yaml** file before starting (depends on the project you are running)
+- You can also use `--set` when starting the project and replace the required data with your own to avoid editing the file
 
-### Task 1. Deploy Nginx via helm with Ingress configuration 
+### Prerequisite
+
+In order to start working with the project, you need to clone git:
+```
+git clone https://github.com/Slavasly/DevOps_BaseCamp.git
+```
+```
+cd DevOps_BaseCamp/14.K8S\ \(Helm\)/
+```
+Install classic Helm:
+```
+sudo snap install helm --classic
+```
+### <a name="1Deploy-nginx">1.Deploy Nginx</a>
+
+ Deploy Nginx via helm with Ingress configuration 
 
 In the task we used ingress and the certificate that we created in the last task.<br> 
 
 Set variables via value yaml
 Use “helm upgrade --install --atomic …” to change some parameters (Example: number of pods)
 
-## Task 2
-Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. ( https://helm.sh/docs/chart_template_guide/getting_started/ )
-
-
-expected result:
-
-![image](https://user-images.githubusercontent.com/44306982/233730510-c3be808a-8d48-4c9c-a8e0-cb0af794cfb2.png)
-
-## Task 3. Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm
-
----
-
-
-
-
-# How to start?
-
-In order to start working with the project, you need:
-```
-git clone https://github.com/BohdanHavran/DevOps-Basecamp-HomeTask.git
-```
-```
-cd DevOps-Basecamp-HomeTask/task14
-```
-If you don't have Helm you should install it:
-```
-sudo snap install helm --classic
-```
-### <a name="Deploy-nginx">Deploy Nginx</a>
 With this command you will run the helm chart:
 ```
 helm install nginx-helm nginx/
@@ -81,7 +67,17 @@ URL: https://bohdanhavran.dynv6.net/nginx-helm
 
 ![image](https://user-images.githubusercontent.com/7732624/218249315-fb77393d-84be-4a67-bd26-4a6302c969df.png)
 
-### <a name="Deploy-pacman">2.Deploy Pacman</a>
+### <a name="2Deploy-pacman">2.Deploy Pacman</a>
+
+
+
+## Task 2
+Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. ( https://helm.sh/docs/chart_template_guide/getting_started/ )
+
+
+expected result:
+
+![image](https://user-images.githubusercontent.com/44306982/233730510-c3be808a-8d48-4c9c-a8e0-cb0af794cfb2.png)
 With this command you will run the helm chart:
 ```
 helm install pacman pacman/
@@ -108,7 +104,10 @@ URL: https://bohdanhavran.dynv6.net/
 
 ![image](https://user-images.githubusercontent.com/7732624/218249599-aef80936-e25b-4d13-a7af-683a566179b6.png)
 
-### <a name="Deploy-mern-stack">3.Deploy MERN stack</a>
+### <a name="3Deploy-mern-stack">3.Deploy MERN stack</a>
+
+## Task 3. Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm
+
 With this command you will add the repository:
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
