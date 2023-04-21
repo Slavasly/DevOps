@@ -1,12 +1,12 @@
 # Kubernetes Helm Home Task
 Content:<br>
- [Deploy Nginx](#Deploy-nginx) | [Deploy Pacman](#2.Deploy-pacman) | [Deploy MERN stack](#3.Deploy-mern-stack)
+ [Deploy Nginx](#Deploy-nginx) | [Deploy Pacman](#Deploy-pacman) | [Deploy MERN stack](#Deploy-mern-stack)
 
  <b>Note:</b>
 - You must edit the values.yaml file before starting (depends on the project you are running)
 - You can also use --set when starting the project and replace the required data with your own to avoid editing the file
 
-### 1. Deploy Nginx via helm with Ingress configuration 
+### Task 1. Deploy Nginx via helm with Ingress configuration 
 
 In the task we used ingress and the certificate that we created in the last task.<br> 
 
@@ -18,10 +18,10 @@ Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golu
 
 
 expected result:
-image.png
 
-## Task 3 (not mandatory)
-Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm
+![image](https://user-images.githubusercontent.com/44306982/233730510-c3be808a-8d48-4c9c-a8e0-cb0af794cfb2.png)
+
+## Task 3. Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm
 
 ---
 
