@@ -1,26 +1,32 @@
 # Kubernetes Helm Home Task
-## Task 1
+Content:<br>
+ [Deploy Nginx](#Deploy-nginx) | [Deploy Pacman](#2.Deploy-pacman) | [Deploy MERN stack](#3.Deploy-mern-stack)
 
-Deploy Nginx via helm with Ingress configuration 
+ <b>Note:</b>
+- You must edit the values.yaml file before starting (depends on the project you are running)
+- You can also use --set when starting the project and replace the required data with your own to avoid editing the file
+
+### 1. Deploy Nginx via helm with Ingress configuration 
+
+In the task we used ingress and the certificate that we created in the last task.<br> 
+
 Set variables via value yaml
 Use “helm upgrade --install --atomic …” to change some parameters (Example: number of pods)
 
-Task 2
+## Task 2
 Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. ( https://helm.sh/docs/chart_template_guide/getting_started/ )
 
 
 expected result:
+image.png
 
-Extra Task 3 (not mandatory)
+## Task 3 (not mandatory)
 Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm
 
---
-# Home Task K8S Helm
-In what task did we deploy to Kubernetes using Helm. in the task I used ingress and the certificate we created in the last task.<br> Elements that were used in this task:<br> [Task1 deploy Nginx](#task1-deploy-nginx) | [Task2 deploy Pacman](#task2-deploy-pacman) | [Task3 deploy MERN stack](#task3-deploy-mern-stack)
+---
 
-<b>Note:</b>
-- You must edit the values.yaml file before starting (depends on the project you are running)
-- You can also use --set when starting the project and replace the required data with your own to avoid editing the file
+
+
 
 # How to start?
 
@@ -35,7 +41,7 @@ If you don't have Helm you should install it:
 ```
 sudo snap install helm --classic
 ```
-### <a name="task1-deploy-nginx">Task1 deploy Nginx</a>
+### <a name="Deploy-nginx">Deploy Nginx</a>
 With this command you will run the helm chart:
 ```
 helm install nginx-helm nginx/
@@ -75,7 +81,7 @@ URL: https://bohdanhavran.dynv6.net/nginx-helm
 
 ![image](https://user-images.githubusercontent.com/7732624/218249315-fb77393d-84be-4a67-bd26-4a6302c969df.png)
 
-### <a name="task2-deploy-pacman">Task2 deploy Pacman</a>
+### <a name="Deploy-pacman">2.Deploy Pacman</a>
 With this command you will run the helm chart:
 ```
 helm install pacman pacman/
@@ -102,7 +108,7 @@ URL: https://bohdanhavran.dynv6.net/
 
 ![image](https://user-images.githubusercontent.com/7732624/218249599-aef80936-e25b-4d13-a7af-683a566179b6.png)
 
-### <a name="task3-deploy-mern-stack">Task3 deploy MERN stack</a>
+### <a name="Deploy-mern-stack">3.Deploy MERN stack</a>
 With this command you will add the repository:
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
