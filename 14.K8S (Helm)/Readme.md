@@ -2,15 +2,9 @@
 Content:<br>
  [Deploy Nginx](#1Deploy-nginx) | [Deploy Pacman](#2Deploy-pacman) | [Deploy MERN stack](#3Deploy-mern-stack)
 
-<<<<<<< HEAD
 <b>Note:</b>
 - You must edit the values.yaml file before starting (depends on the project you are running)
-- You can also use --set when starting the project and replace the required data with your own to avoid editing the file
-=======
- <b>Note:</b>
-- You must edit the **values.yaml** file before starting (depends on the project you are running)
 - You can also use `--set` when starting the project and replace the required data with your own to avoid editing the file
->>>>>>> b2b08b74d8b8f4d5b381f3bd9d59006a180e341c
 
 ### Prerequisite
 Before start to deploy you need to install K8S:
