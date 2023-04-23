@@ -171,29 +171,18 @@ URL: https://vbruksha.v6.rocks/nginx-helm
 ### <a name="2Deploy-pacman">2.Deploy Pacman</a>
 
 ## Task 2
-Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. ( https://helm.sh/docs/chart_template_guide/getting_started/ )
-
+Create and deploy your own chart with the [Pacman](https://hub.docker.com/r/golucky5/pacman) game. 
+[Helm get start](https://helm.sh/docs/chart_template_guide/getting_started/)
 
 expected result:
 
 ![image](https://user-images.githubusercontent.com/44306982/233730510-c3be808a-8d48-4c9c-a8e0-cb0af794cfb2.png)
 With this command you will run the helm chart:
+
 ```
 helm install pacman pacman/
 ```
-![image](https://user-images.githubusercontent.com/7732624/218249554-ce3d84fd-06ed-4db6-a1b6-d7a8bf8112b3.png)
-
-With this command, you can view the list of releases:
-```
-helm ls
-```
-![image](https://user-images.githubusercontent.com/7732624/218249568-eb34b93e-f079-4bc1-9d78-fcae01246638.png)
-
-With the help of this command, you can view all the resources that have been created:
-```
-kubectl get all
-```
-![image](https://user-images.githubusercontent.com/7732624/218249585-e0797b2e-db49-46d4-89d3-f2bdf7f43dc0.png)
+![image](https://user-images.githubusercontent.com/44306982/233857941-2dd06d78-dbda-4d4b-8a41-2fa2e9047d96.png)
 
 <b>Result:</b><br>
 URL: https://bohdanhavran.dynv6.net/
