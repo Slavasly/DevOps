@@ -157,9 +157,9 @@ We can run the Helm chart:
 
 ![image](https://user-images.githubusercontent.com/44306982/233855100-94d64f19-e01b-4542-b533-38b6021cbb5e.png)
 
-Use can use command `helm upgrade --install --atomic …` to change some parameters (Example: number of pods)
+Use can use command `helm upgrade --install --atomic …` to change some parameters `--set host=<your_domain_name>`
 
-`helm upgrade --install --atomic nginx-helm nginx/ --set replicaCount=4 --set dnsName=web1.vbruksha.dp.ua`
+`helm upgrade --install --atomic nginx-helm nginx/ --set replicaCount=4 --set host=vbruksha.v6.rocks`
 
 `kubectl get all`
 
@@ -167,11 +167,7 @@ Use can use command `helm upgrade --install --atomic …` to change some paramet
 
 <b>Result:</b><br>
 URL: https://vbruksha.dynv6.net/nginx-helm
-
-<b>Note:</b>
-- host can be changed in the values.yaml file or when starting helm chart change its value using `--set host=<your_domain_name>`
-- path depends on the name releases
-
+URL: https://vbruksha.v6.rocks/nginx-helm
 ### <a name="2Deploy-pacman">2.Deploy Pacman</a>
 
 ## Task 2
