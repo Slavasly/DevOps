@@ -185,16 +185,15 @@ helm install pacman pacman/
 ![image](https://user-images.githubusercontent.com/44306982/233857941-2dd06d78-dbda-4d4b-8a41-2fa2e9047d96.png)
 
 <b>Result:</b><br>
-URL: https://bohdanhavran.dynv6.net/
+URL: https://vbruksha.dynv6.net
 
 <b>Note:</b>
-- host can be changed in the values.yaml file or when starting helm chart change its value using --set host=<your_domain_name>
+- host can be changed in the `values.yaml` file or when starting helm chart change its value using `--set host=<your_domain_name>`
 
-![image](https://user-images.githubusercontent.com/7732624/218249599-aef80936-e25b-4d13-a7af-683a566179b6.png)
 
 ### <a name="3Deploy-mern-stack">3.Deploy MERN stack</a>
 
-## Task 3. Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm
+## Task 3. Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via Helm
 
 With this command you will add the repository:
 ```
