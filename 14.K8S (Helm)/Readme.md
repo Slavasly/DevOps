@@ -195,39 +195,35 @@ URL: https://vbruksha.dynv6.net
 
 ## Task 3. Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via Helm
 
-With this command you will add the repository:
+Create a Mern bitname repository:
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
-![image](https://user-images.githubusercontent.com/7732624/218251795-231ab79a-bbf5-492d-9d25-6bc98bee4ea8.png)
+![image](https://user-images.githubusercontent.com/44306982/233860675-f3537e8b-05ea-4566-aa18-b00efb8c99ab.png)
 
-With this command you will run the helm chart:
+Run the Helm Chart with Bitnami node installation:
 ```
 helm install mern-stack bitnami/node
 ```
-![image](https://user-images.githubusercontent.com/7732624/218251817-801fe89f-865e-41f7-9175-e10866f03b5f.png)
-
-With this command, you can view the list of releases:
-```
-helm ls
-```
-![image](https://user-images.githubusercontent.com/7732624/218251829-1cd73880-c5e2-44b5-a48d-7959d384f959.png)
+![image](https://user-images.githubusercontent.com/44306982/233860804-c70a9c25-c2fc-4fd2-964f-f57c6e940a2e.png)
 
 With the help of this command, you can view all the resources that have been created:
 ```
 kubectl get all
 ```
-![image](https://user-images.githubusercontent.com/7732624/218251866-3b533c0c-3539-44a5-8c95-0d285e09e64d.png)
+![image](https://user-images.githubusercontent.com/44306982/233861048-b2a324ca-c4c6-47cc-b598-d251af0d6826.png)
 
 <b>Note:</b>
-- Before using the following commands, you should change the data in the file to your own
+- Before using the following commands, you should change the file `ingress.yaml` on your own
 
-For this task you still need to run ingress and with this command you will successfully complete it:
+![image](https://user-images.githubusercontent.com/44306982/233861174-cefc1afa-fd04-48ce-a8f8-f1c03f0e43db.png)
+
+You need to run `ingress.yaml` and wait till it complete:
 ```
 kubectl apply -f mern/ingress.yaml
 ```
-![image](https://user-images.githubusercontent.com/7732624/218252218-91eaf4f0-d2a6-4e01-a709-1c8bb892e83c.png)
+![image](https://user-images.githubusercontent.com/44306982/233861348-b28d38c1-9ca1-49bf-8a93-0007309f4aff.png)
 
 <b>Result:</b><br>
-URL: https://bohdanhavran.dynv6.net/mern
-![image](https://user-images.githubusercontent.com/7732624/218251917-470c93a6-bcfb-4415-be5c-8656f1f0f0e0.png)
+URL: https://vbruksha.dynv6.net/mern
+![image](https://user-images.githubusercontent.com/44306982/233861428-b010c22b-c67d-459e-8600-62c4a6aa08ba.png)
