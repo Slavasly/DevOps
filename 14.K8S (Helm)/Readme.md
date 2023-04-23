@@ -31,8 +31,6 @@ Prepairing a config files tree for deployment:
     - nginx.yaml
     - _helpers.yaml(with the function to use while templating)
 
-Installing Helm Chart:
-
 ![image](https://user-images.githubusercontent.com/44306982/233852540-2e16a097-002e-4169-a230-432dc99ee8e5.png)
 
 Create Helm `nginx/Chart.yaml` with capital letter:
@@ -124,11 +122,24 @@ spec:
     port: {{ .Values.port }}
     targetPort: {{ .Release.Name }}-http
 ```
-Install classic Helm:
+Installing Helm Chart:
 ```
 sudo snap install helm --classic
 ```
 ![image](https://user-images.githubusercontent.com/44306982/233852697-777ba57c-bce0-43d8-b524-285812e408dd.png)
+
+In case of issue with installation need to delete prev. ingress and uninstall Helm Chart:
+
+`kubectl get ingress --all-namespaces`
+
+`kubectl delete ingress nginx-service -n default`
+
+`helm ls`
+
+`helm uninstall nginx-helm`
+
+![image](https://user-images.githubusercontent.com/44306982/233855233-80090dc3-e6cc-427f-981c-0d703014082b.png)
+
 
 ### <a name="1Deploy-nginx">1.Deploy Nginx</a>
 
@@ -136,51 +147,32 @@ sudo snap install helm --classic
 
 In the task we used ingress and the certificate that we created in the last task.<br> 
 
-Set variables via value yaml
-Use “helm upgrade --install --atomic …” to change some parameters (Example: number of pods)
+We can run the Helm chart:
 
-With this command you will run the helm chart:
-```
-helm install nginx-helm nginx/
-```
-![image](https://user-images.githubusercontent.com/7732624/218249182-edee4dd0-228e-47c9-9283-74948f4b9154.png)
+`helm install nginx-helm nginx/`
 
-With this command, you can view the list of releases:
-```
-helm ls
-```
-![image](https://user-images.githubusercontent.com/7732624/218249441-59533271-9a2d-467c-981b-96629bdad945.png)
+`kubectl get all`
 
-With the help of this command, you can view all the resources that have been created:
-```
-kubectl get all
-```
-![image](https://user-images.githubusercontent.com/7732624/218249202-86c7274a-458f-4977-bfbe-919ef88f3d2b.png)
+`helm ls`
 
-With the help of this command, you can change some parameters:
-```
-helm upgrade --install --atomic nginx-helm nginx/ --set replicaCount=4
-```
-![image](https://user-images.githubusercontent.com/7732624/218249264-8f98cade-5ce4-4da6-b1f3-9ac3924baec9.png)
+![image](https://user-images.githubusercontent.com/44306982/233855100-94d64f19-e01b-4542-b533-38b6021cbb5e.png)
 
-With the help of this command, you can view all the resources that have been created:
-```
-kubectl get all
-```
-![image](https://user-images.githubusercontent.com/7732624/218249276-cfb1ff70-4e37-4cf9-8e0a-1ea227e81169.png)
+Use can use command `helm upgrade --install --atomic …` to change some parameters (Example: number of pods)
+
+`helm upgrade --install --atomic nginx-helm nginx/ --set replicaCount=4 --set dnsName=web1.vbruksha.dp.ua`
+
+`kubectl get all`
+
+![image](https://user-images.githubusercontent.com/44306982/233855760-6bceedef-2065-4eee-9d67-b86273e305c9.png)
 
 <b>Result:</b><br>
-URL: https://bohdanhavran.dynv6.net/nginx-helm
+URL: https://vbruksha.dynv6.net/nginx-helm
 
 <b>Note:</b>
-- host can be changed in the values.yaml file or when starting helm chart change its value using --set host=<your_domain_name>
-- /pach depends on the name releases
-
-![image](https://user-images.githubusercontent.com/7732624/218249315-fb77393d-84be-4a67-bd26-4a6302c969df.png)
+- host can be changed in the values.yaml file or when starting helm chart change its value using `--set host=<your_domain_name>`
+- path depends on the name releases
 
 ### <a name="2Deploy-pacman">2.Deploy Pacman</a>
-
-
 
 ## Task 2
 Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. ( https://helm.sh/docs/chart_template_guide/getting_started/ )
