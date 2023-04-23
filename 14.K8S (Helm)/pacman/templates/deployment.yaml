@@ -1,22 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-game
   labels:
     app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: nginx
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: nginx
+        app: {{ .Release.Name }}
     spec:
       containers:
-      - name: nginx
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+      - name: {{ .Release.Name }}-game
+        image: {{ .Values.container.image }}
         ports:
-        - name: {{ .Release.Name }}-http
-          containerPort: {{ .Values.port }}
+        - containerPort: 80

@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-service
 spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     app: {{ .Release.Name }}
-  ports:
-  - name: {{ .Release.Name }}-service-port
-    protocol: {{ .Values.protocol }}
-    port: {{ .Values.port }}
-    targetPort: {{ .Release.Name }}-http
