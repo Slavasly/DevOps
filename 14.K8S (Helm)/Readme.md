@@ -29,7 +29,7 @@ Prepairing a config files tree for deployment:
     - ingress.yaml
     - service.yaml
     - nginx.yaml
-    - _helpers.yaml(with the function to use while templating)
+    - _helpers.yaml (with the function to use while templating)
 
 ![image](https://user-images.githubusercontent.com/44306982/233852540-2e16a097-002e-4169-a230-432dc99ee8e5.png)
 
@@ -167,14 +167,16 @@ Use can use command `helm upgrade --install --atomic …` to change some paramet
 
 <b>Result:</b><br>
 URL: https://vbruksha.dynv6.net/nginx-helm
+
 URL: https://vbruksha.v6.rocks/nginx-helm
+
 ### <a name="2Deploy-pacman">2.Deploy Pacman</a>
 
 ## Task 2
 Create and deploy your own chart with the [Pacman](https://hub.docker.com/r/golucky5/pacman) game. 
 [Helm get start](https://helm.sh/docs/chart_template_guide/getting_started/)
 
-expected result:
+Expected result:
 
 ![image](https://user-images.githubusercontent.com/44306982/233730510-c3be808a-8d48-4c9c-a8e0-cb0af794cfb2.png)
 With this command you will run the helm chart:
